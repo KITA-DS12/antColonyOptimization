@@ -77,3 +77,32 @@ class Ant:
             to_probablitys[i+1] += to_probablitys[i]
 
         return to_nodes, to_probablitys
+
+    def calc_passed_pheromone(self):
+        """
+        アリの通ったルートのフェロモン量を計算する
+        """
+        passed_length = self.calc_length_routes()
+        q = self.params.q
+        for i in range(self.params.num_node-1):
+            self.graph.next_pheromone_edge[
+                self.visited_routes[i]][
+                self.visited_routes[i+1]
+            ] += q/passed_length
+
+    def calc_length_routes(self):
+        """
+        通ったルートの長さを計算する
+
+        Returns
+        -------
+        passed_length: int
+            アリが通ったルートの長さの合計
+        """
+        passed_length = 0
+        for i in range(self.params.num_node-1):
+            passed_length += self.graph.length_edge[
+                self.visited_routes[i]][
+                self.visited_routes[i+1]
+            ]
+        return passed_length
