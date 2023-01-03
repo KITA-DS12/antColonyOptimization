@@ -3,13 +3,36 @@ import random
 
 
 class Ant:
+    """
+    アリを管理する
+
+    Attributes
+    ----------
+    params: Parameters
+        ACOを設定するすべてのパラメータを保存する
+    graph: Graph
+        ノードの座標やエッジの距離，フェロモン量などを保存する
+    visited_routes: list of int
+        アリが通ったノードのインデックスを格納する
+    is_visited_nodes: list of bool
+        アリが既に通ったかを真偽値で格納する
+    """
+
     def __init__(self, parameters, graph):
+        """
+        Parameters
+        ----------
+        parameters: Parameters
+            ACOを設定するすべてのパラメータを保存する
+        graph: Graph
+            ノードの座標やエッジの距離，フェロモン量などを保存する
+        """
         self.params = parameters
         self.graph = graph
-        self.visited_routes = [self.params.initial_node]
-        self.visited_nodes = [
+        self.visited_routes = [self.params.start_node]
+        self.is_visited_nodes = [
             False for _ in range(self.params.num_node)]
-        self.visited_nodes[self.params.initial_node] = True
+        self.is_visited_nodes[self.params.initial_node] = True
 
     def construct_routes(self):
         """
@@ -26,7 +49,7 @@ class Ant:
                 to_probabilitys, random_probability)]
             # to_nodeへ移動
             self.visited_routes.append(to_node)
-            self.visited_nodes[to_node] = True
+            self.is_visited_nodes[to_node] = True
 
     def __calc_probability_from_v(self, v):
         """
@@ -55,7 +78,7 @@ class Ant:
 
         for to in range(self.params.num_node):
             # 現在のノードまたは既に訪れたノードはスキップ
-            if (to == v) or self.params.visited_nodes[to]:
+            if (to == v) or self.params.is_visited_nodes[to]:
                 continue
             """
             self.graph.pherome_edge[v][to] : tau(v,to)
