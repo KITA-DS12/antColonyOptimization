@@ -36,6 +36,12 @@ class Graph:
         self.heuristics_edge = [[0 for _ in range(self.params.num_node)]
                                 for _ in range(self.params.num_node)]
 
+    def __prepare_graph(self):
+        """
+        受け取ったグラフ構造の情報を読み取る
+        """
+        pass
+
     def reset_pheromones(self):
         """
         エッジに蓄積したフェロモンをすべてリセットする
