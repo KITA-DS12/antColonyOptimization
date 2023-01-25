@@ -18,7 +18,7 @@ class Graph:
         エッジのヒューリスティック値を格納する
     """
 
-    def __init__(self, parameters):
+    def __init__(self, parameters, path):
         """
         Parameters
         ----------
@@ -35,8 +35,9 @@ class Graph:
                                     for _ in range(self.params.num_node)]
         self.heuristics_edge = [[0 for _ in range(self.params.num_node)]
                                 for _ in range(self.params.num_node)]
+        self.__prepare_graph(path)
 
-    def __prepare_graph(self):
+    def __prepare_graph(self, path):
         """
         受け取ったグラフ構造の情報を読み取る
         """

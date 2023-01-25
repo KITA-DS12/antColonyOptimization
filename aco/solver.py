@@ -25,7 +25,7 @@ class Solver:
 
     def __init__(self, num_ant, num_node, q, alpha, beta, rou,
                  max_iteration, min_tau, max_tau, border_unchanged,
-                 start_node):
+                 start_node, path):
         """
         Parameters
         ----------
@@ -55,7 +55,7 @@ class Solver:
         self.params = Parameters(num_ant, num_node, q, alpha, beta, rou,
                                  max_iteration, min_tau, max_tau,
                                  border_unchanged, start_node)
-        self.graph = Graph(self.params)
+        self.graph = Graph(self.params, path)
         self.colony = Colony(self.params, self.graph)
         self.best_ant = None
         self.good_ant = None
