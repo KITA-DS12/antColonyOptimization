@@ -1,3 +1,6 @@
+import json
+
+
 class Graph:
     """
     ノードやエッジ，フェロモンなどを管理する
@@ -41,7 +44,8 @@ class Graph:
         """
         受け取ったグラフ構造の情報を読み取る
         """
-        pass
+        file = json.load(open(path, 'r'))
+        print(file["layouts"]["nodes"])
 
     def reset_pheromones(self):
         """

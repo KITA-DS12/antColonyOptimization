@@ -87,8 +87,9 @@ class Ant:
                 ノードv, to間のエッジ(v,to)のヒューリスティック値
             """
             # フェロモン量 * ヒューリスティック値
-            pheromone = (self.graph.pheromone_edge[v][to] ** self.params.alpha)
-            * (self.graph.heuristics_edge[v][to] ** self.params.beta)
+            pheromone = (self.graph.pheromone_edge[v][to] **
+                         self.params.alpha) * \
+                        (self.graph.heuristics_edge[v][to] ** self.params.beta)
 
             sum_probablity += pheromone
             to_nodes.append(to)

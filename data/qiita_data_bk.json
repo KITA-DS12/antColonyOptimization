@@ -1,0 +1,5 @@
+{
+  "nodes": "{\"node1\":{\"name\":\"Python基礎文法まとめ\",\"link\":\"https://qiita.com/kita_ds12/items/84552d41a8aad36d5519\"},\"node2\":{\"name\":\"Pythonだけでクロスプラットフォームなアプリを作れるFletについて\",\"link\":\"https://qiita.com/NasuPanda/items/48849d7f925784d6b6a0\"},\"node3\":{\"name\":\"Flask についてまとめ　Flaskを動かしてみる\",\"link\":\"https://qiita.com/TaichiEndoh/items/ca306560b928eddfc222\"},\"node4\":{\"name\":\"Flaskを使ってDocker、PythonでHello Flask\",\"link\":\"https://qiita.com/Pitts7/items/542196eaec6bc0b77c38\"}}",
+  "edges": "{}",
+  "layouts": "{\"nodes\":{\"node1\":{\"x\":15,\"y\":15},\"node2\":{\"x\":15,\"y\":105},\"node3\":{\"x\":15,\"y\":195},\"node4\":{\"x\":15,\"y\":285}}}"
+}
